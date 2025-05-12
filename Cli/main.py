@@ -3,6 +3,7 @@ from Scrapper import fetcher, Parser, Utils
 import questionary
 import os
 def advanced_menu(url,fold):
+    print("\n\n==========================================\n")
     choice = questionary.select(
         "Select an option:",
         choices=[
@@ -13,16 +14,16 @@ def advanced_menu(url,fold):
     ).ask()
 
     if choice == "1.  Data parsing || Analyse":
-        print(f"Selected: {choice}")
+        print(f"\nSelected: {choice}")
         data = Parser.parse_data(url,fold)
         if data:
             Parser.download(data, fold)
     elif choice == "2.  see on local host":
-        print(f"Selected: {choice}")
-        print("address:-  127.0.0.1:8000")
+        print(f"\nSelected: {choice}")
+        print(" \n💻Address:-  127.0.0.1:8000")
         os.system("python -m http.server 8000 --directory Data")
     elif choice == "3.  Exit":
-        print(f"selected: {choice}")
+        print(f"\nselected: {choice}")
         exit()
         
 def create_sep_folder(url):
@@ -32,21 +33,21 @@ def create_sep_folder(url):
     return folder_name
 
 def get_url()-> str:
-    return input("Enter the URL: ")
+    return input("Enter the URL➡️:  ")
 def maincli(url:str):
     fold = create_sep_folder(url)
-    print("Checking URL validity...")
+    print("\nChecking URL validity...")
     if not Utils.is_valid_url(url):
         return False
     
-    print("Checking URL info...")
+    print("\nChecking URL info...")
     url_info_result = Utils.url_info(url)
     if not url_info_result:
-        print("URL info check failed. Skipping fetch operation.")
         return False
         
     print("Fetching Data...")
     if fetcher.fetch_data(url,fold):
-        print("DATA fetched ✅ and stored in Data/raw files")
+        print("\nDATA fetched ✅ ")
+        print("\nimporting raw data... ")
     advanced_menu(url,fold)
     

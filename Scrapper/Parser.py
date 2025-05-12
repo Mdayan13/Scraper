@@ -16,21 +16,21 @@ def parse_data(url, bin):
             }
             
             url_extract(soup, data)
-            print(f"URLs extracted: {len(data['urls'])}")
+            print(f"\nURLs extracted: {len(data['urls'])}")
             image_extract(soup, data)
-            print(f"images extraced: {len(data['images'])}")
+            print(f"\nimages extraced: {len(data['images'])}")
             video_extract(soup, data)
-            print(f"videos extracted: {len(data['videos'])}")
+            print(f"\nvideos extracted: {len(data['videos'])}")
             title_extract(soup, data)
-            print(f"titles Extracted: {len(data['titles'])}")
+            print(f"\ntitles Extracted: {len(data['titles'])}")
             statement_extract(soup, data)
-            print(f"Dtatements Extracted: {len(data['statements'])}")
+            print(f"\nDtatements Extracted: {len(data['statements'])}")
             audio_music_extract(soup, data)
-            print(f"Audio Extracted: {len(data['audio'])}")
+            print(f"\nAudio Extracted: {len(data['audio'])}")
             return data
             
     except Exception as e:
-        print(f"Error: {str(e)}")
+        print(f"\nError: {str(e)}")
         return False
 
 def url_extract(soup, data):
@@ -179,12 +179,10 @@ def download(data, bin):
                     for chunk in response.iter_content(chunk_size=8192):
                         if chunk:
                             f.write(chunk)
-                print(f"Downloaded: {filename}")
-            else:
-                print(f"Failed to download: {url}")
+                print(f"\nDownloaded: {filename}")
         except Exception as e:
-            print(f"Error downloading {url}: {str(e)}")
-
+            print(f"\nError downloading {url}: {str(e)}")
+        print(f"\n\n\n==========\n\nDownload📂 => Data/{folder}")
     def save_text(content, filename, folder):
         filepath = os.path.join(f"Data/{bin}/{folder}", filename)
         with open(filepath, 'w', encoding='utf-8') as f:
@@ -197,11 +195,13 @@ def download(data, bin):
     os.makedirs(f"Data/{bin}/text", exist_ok=True)
 
     if choice == "1. URLs🔗":
+        
         # First save URLs to file
         with open(f"Data/{bin}/text/urls.txt", 'w') as f:
             for url in data['urls']:
+              
                 f.write(url + '\n')
-        print("URLs saved to urls.txt")
+        print("\nURLs saved to urls.txt")
         
         # Then attempt to download the URLs
         download_dir = f"Data/{bin}/downloads"
@@ -219,12 +219,11 @@ def download(data, bin):
                         for chunk in response.iter_content(chunk_size=8192):
                             if chunk:
                                 f.write(chunk)
-                    print(f"Downloaded: {filename}")
+                    print(f"\nDownloading: {filename}")
                 else:
-                    print(f"Failed to download: {url}")
+                    print(f"\nFailed to download: {url}")
             except Exception as e:
-                print(f"Error downloading {url}: {str(e)}")
-
+                print(f"\nError downloading {url}: {str(e)}")
     elif choice == "2. Images🖼️":
         for url in data['images']:
             if url.startswith(('http://', 'https://')):
@@ -238,12 +237,12 @@ def download(data, bin):
     elif choice == "4. Titles📝":
         for i, title in enumerate(data['titles']):
             save_text(title, f"title_{i}.txt", "text")
-        print("Titles saved to text files")
+        print("\nTitles saved to text files")
 
     elif choice == "5. Statements📜":
         for i, statement in enumerate(data['statements']):
             save_text(statement, f"statement_{i}.txt", "text")
-        print("Statements saved to text files")
+        print("\nStatements saved to text files")
 
     elif choice == "6. Audio🎧":
         for url in data['audio']:
@@ -269,6 +268,6 @@ def download(data, bin):
             save_text(title, f"title_{i}.txt", "text")
         for i, statement in enumerate(data['statements']):
             save_text(statement, f"statement_{i}.txt", "text")
-        print("All content downloaded and saved")
+        print("\nAll content downloaded and saved")
     
     
