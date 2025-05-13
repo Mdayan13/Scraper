@@ -14,7 +14,7 @@ to Start the Tool
 
 
 features:-
-🟥 scrap wanted content                 
+🟥 scrap different types of content.                          
 🟥 you can host it on your own localhost              
 🟥 Scrapped content will be saved on the specific Data📂/folder
 
