@@ -20,9 +20,9 @@ features:-
 
 how it works:-        
 1.First it scraps the raw HTML data of Site you provide.      
-2. then if extracts the demanded content from that scrapper.                                
+2. then it extracts the demanded content from that scrapper.                                
 3. for Images and videos it scraps the SRC link from that site and downloads the content in that link.              
-5. if any face any issue and want any type of upgrade in this tool, feel free to Contact.         
+5. if you face any issue and want any type of upgrade in this tool, feel free to Contact.         
 THANK YOU.🔥
 
 
