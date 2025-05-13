@@ -6,10 +6,10 @@ so, this is just web content scraping tool for moderate website
 
 you can scrap basic content such as images, videos, audios from it 
 
-for first time installation 
+for first time installation       
 `pip install -r requirements`
 
-to Start the Tool
+to Start the Tool            
 `python run.py`
 
 
