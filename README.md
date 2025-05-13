@@ -2,9 +2,9 @@ Hey There, i am python developer 💻
 
 I can crete TG bots, discord bot, chatbots 🤖
 
-so, this is just web content scraping tool for moderate website 
+so, this is just web content scraping tool for moderate website🫠.                
 for high-end websites we need proxies to purchase💵          
-you can scrap basic content such as images, videos, audios from it 
+you can scrap basic content such as images🖼️, videos🎦, audios🎧 from it. 
 
 for first time installation       
 `pip install -r requirements`
